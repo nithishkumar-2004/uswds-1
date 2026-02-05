@@ -1,0 +1,199 @@
+:root {
+  --ink: #0b2545;
+  --accent: #3c7eff;
+  --accent-2: #8be0ff;
+  --surface: rgba(255, 255, 255, 0.82);
+  --glass-stroke: rgba(255, 255, 255, 0.35);
+  --glow: 0 18px 60px rgba(60, 126, 255, 0.25);
+}
+
+* {
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease,
+    box-shadow 240ms ease, transform 200ms ease;
+}
+
+body {
+  background: radial-gradient(circle at 18% 20%, rgba(140, 193, 255, 0.3), transparent 35%),
+    radial-gradient(circle at 82% 18%, rgba(120, 255, 214, 0.28), transparent 32%),
+    linear-gradient(135deg, #f6f9ff 0%, #eef4ff 45%, #f9fbff 100%);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  animation: fadeInPage 520ms ease;
+}
+
+main section {
+  position: relative;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
+  box-shadow: 0 12px 48px rgba(15, 23, 42, 0.08);
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+main section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(60, 126, 255, 0.08), rgba(139, 224, 255, 0.08));
+  pointer-events: none;
+}
+
+.usa-hero {
+  border-radius: 22px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  box-shadow: 0 18px 64px rgba(15, 23, 42, 0.12);
+}
+
+.usa-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(11, 37, 69, 0.82), rgba(60, 126, 255, 0.62));
+  mix-blend-mode: multiply;
+}
+
+.usa-hero__callout,
+.usa-hero__callout * {
+  position: relative;
+  z-index: 1;
+}
+
+.usa-hero__callout {
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--glass-stroke);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--glow);
+}
+
+.usa-breadcrumb__link {
+  color: #dfe9ff;
+}
+
+.usa-breadcrumb__link:hover {
+  color: #fff;
+}
+
+.usa-button,
+.usa-button:link,
+.usa-button:visited {
+  border-radius: 12px;
+  border: 1px solid transparent;
+  box-shadow: 0 12px 30px rgba(60, 126, 255, 0.25);
+  font-weight: 600;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+.usa-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(60, 126, 255, 0.22);
+}
+
+.usa-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 38px rgba(60, 126, 255, 0.28);
+}
+
+.usa-button--outline {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+.usa-button--outline:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.usa-card__container,
+.usa-card {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.usa-card__container {
+  background: var(--surface);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-stroke);
+  box-shadow: 0 10px 36px rgba(15, 23, 42, 0.08);
+}
+
+.usa-card__container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 48px rgba(15, 23, 42, 0.12);
+}
+
+.usa-collection__item {
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+}
+
+.usa-collection__item:hover {
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.1);
+  transform: translateY(-3px);
+}
+
+.usa-section h2,
+.usa-card__heading,
+.usa-collection__heading {
+  letter-spacing: -0.01em;
+}
+
+nav a, a, .usa-link {
+  color: var(--ink);
+}
+
+a:hover, .usa-link:hover {
+  color: var(--accent);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.04);
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  main section {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .usa-hero__callout {
+    padding: 1.25rem;
+  }
+
+  .usa-button {
+    width: 100%;
+  }
+}
